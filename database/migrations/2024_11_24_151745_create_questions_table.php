@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->text('content');
-            $table->string('image');
-            $table->text('a');
-            $table->text('b');
-            $table->text('c');
-            $table->text('d');
-            $table->foreignId('question_type_id')->constrained('question_types')->onDelete('cascade');
-            $table->foreignId('difficulty_level_id')->constrained('difficulty_levels')->onDelete('cascade');
-            $table->foreignId('grade_id')->constrained('grades')->onDelete('cascade');
-            $table->foreignId('subject_id')->constrained('subjects')->onDelete('cascade');
+            $table->text('content')->nullable();
+            $table->string('image')->nullable();
+            $table->text('a')->nullable();
+            $table->text('b')->nullable();
+            $table->text('c')->nullable();
+            $table->text('d')->nullable();
+            $table->foreignId('question_type_id')->constrained('question_types')->onDelete('cascade')->nullable();
+            $table->foreignId('difficulty_level_id')->constrained('difficulty_levels')->onDelete('cascade')->nullable();
+            $table->foreignId('grade_id')->constrained('grades')->onDelete('cascade')->nullable();
+            $table->foreignId('subject_id')->constrained('subjects')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }
